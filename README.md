@@ -52,3 +52,9 @@ These code come from the modification of miasm module
 
 
 https://github.com/cea-sec/miasm/tree/master/example/ida
+
+depends
+=======
+
+pip install pyparsing==2.4.2
+pip install future

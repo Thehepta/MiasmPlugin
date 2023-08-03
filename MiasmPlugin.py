@@ -6,6 +6,8 @@ import ida_loader
 import ida_kernwin
 import ida_hexrays
 
+import miasm_modules.menu
+
 my_dirname, _ = os.path.split(__file__)
 
 #setattr(ida_hexrays, "MMAT_DEOB_MAP", getattr(ida_hexrays, "MMAT_LOCOPT"))
@@ -33,7 +35,8 @@ class MiasmPluginT(ida_idaapi.plugin_t):
 		modules_path = os.path.join(my_dirname, "miasm_modules")
 		if not modules_path in sys.path:
 			sys.path.append(modules_path)
-		import menu
+		# import menu
+		import miasm_modules.menu as menu
 		menu.create_miasm_menu()
 		return ida_idaapi.PLUGIN_OK
 	def run(self, arg):
