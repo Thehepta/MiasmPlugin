@@ -11,14 +11,14 @@ def guess_machine(addr=None):
     "Return an instance of Machine corresponding to the IDA guessed processor"
 
     processor_name = get_inf_attr(INF_PROCNAME)
-    info = idaapi.get_inf_structure()
+    ida_ida.inf_get_procname()
 
-    if info.is_64bit():
-        size = 64
-    elif info.is_32bit():
+    idaapi.inf_is_32bit_exactly()
+
+    if idaapi.inf_is_32bit_exactly():
         size = 32
     else:
-        size = None
+        size = 64
 
     if processor_name == "metapc":
         size2machine = {
@@ -49,7 +49,7 @@ def guess_machine(addr=None):
             t_reg = get_sreg(addr, "T")
             is_armt = t_reg == 1
 
-        is_bigendian = info.is_be()
+        is_bigendian = idaapi.inf_is_be()
         infos = (is_armt, size, is_bigendian)
         if not infos in info2machine:
             raise NotImplementedError('not fully functional')

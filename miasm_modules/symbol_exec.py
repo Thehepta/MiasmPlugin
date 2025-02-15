@@ -11,7 +11,7 @@ from miasm.expression.expression_helper import Variables_Identifier
 from miasm.expression.expression import ExprAssign
 from miasm.core.locationdb import LocationDB
 
-from utils import expr2colorstr, translatorForm
+from miasm_modules.utils import expr2colorstr, translatorForm
 
 
 

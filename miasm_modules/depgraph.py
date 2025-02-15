@@ -21,7 +21,7 @@ from miasm.expression.simplifications import expr_simp
 from miasm.analysis.depgraph import DependencyGraph
 from miasm.ir.ir import AssignBlock, IRBlock
 
-from utils import guess_machine
+from miasm_modules.utils import guess_machine
 
 
 class depGraphSettingsForm(ida_kernwin.Form):

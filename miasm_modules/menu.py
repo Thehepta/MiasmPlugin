@@ -9,15 +9,15 @@
 
 import idaapi as idaapi
 
-from symbol_exec import symbolic_exec
-from graph_ir import function_graph_ir
+from miasm_modules.symbol_exec import symbolic_exec
+from miasm_modules.graph_ir import function_graph_ir
 try:
-	from rpyc_ida import serve_threaded
+	from miasm_modules.rpyc_ida import serve_threaded
 except ImportError:
 	serve_threaded = None
-from depgraph import launch_depgraph
+from miasm_modules.depgraph import launch_depgraph
 try:
-	from ctype_propagation import analyse_function
+	from miasm_modules.ctype_propagation import analyse_function
 except ImportError:
 	analyse_function = None
 
